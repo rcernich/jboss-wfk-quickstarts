@@ -35,7 +35,7 @@
 
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
-    <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
+    <context:property-placeholder location="classpath:spring/${DB_TYPE:hsql}-data-access.properties" system-properties-mode="OVERRIDE"/>
 
     <!-- DataSource configuration for the tomcat jdbc connection pool 
     See here for more details on commons-dbcp versus tomcat-jdbc: 
@@ -46,7 +46,7 @@
 
     <!-- Database initializer. If any of the script fails, the initialization stops. -->
     <!-- As an alternative, for embedded databases see <jdbc:embedded-database/>. -->
-    <jdbc:initialize-database data-source="dataSource">
+    <jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
         <jdbc:script location="${jdbc.initLocation}"/>
         <jdbc:script location="${jdbc.dataLocation}"/>
     </jdbc:initialize-database>

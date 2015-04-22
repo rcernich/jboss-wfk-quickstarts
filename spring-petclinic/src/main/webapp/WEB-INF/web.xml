@@ -18,7 +18,7 @@
   <display-name>Spring PetClinic</display-name>
   <description>Spring PetClinic sample application</description>
   <context-param>
-    <param-name>spring.profiles.active</param-name>
+    <param-name>spring.profiles.default</param-name>
     <param-value>jpa</param-value>
   </context-param>
   <context-param>
